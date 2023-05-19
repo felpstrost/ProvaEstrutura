@@ -1,0 +1,28 @@
+//Tendo como base um vetor de inteiros de tamanho 5, faça um método recursivo para preencher o vetor com dados vindos do usuário.
+#include <stdio.h>
+#include <stdlib.h>
+
+void vetinho(int vet[], int tam, int ind) {
+    if (ind == tam) {
+        return;
+    }
+  
+    printf("Digite os numeros: ");
+    scanf("%d", &vet[ind]);
+  
+    vetinho(vet, tam, ind + 1);
+}
+
+int main() {
+    int vet[5];
+  	int i;
+    vetinho(vet, 5, 0);
+  
+    printf("Vetor preenchido:\n");
+    for (i = 0; i < 5; i++) {
+        printf("%d ", vet[i]);
+    }
+    printf("\n");
+  
+    return 0;
+}
