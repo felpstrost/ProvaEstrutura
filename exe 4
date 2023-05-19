@@ -6,11 +6,6 @@
 
 void linha(int mat[][MAX], int TAMC, int lin) {
 	int i;
-    if (lin < 0 || lin >= TAMC) {
-        printf("Linha fora dos limites da matriz.\n");
-        return;
-    }
-	
     for (i = 0; i < TAMC; i++) {
         printf("%d ", mat[lin][i]);
     }
@@ -42,9 +37,3 @@ int main() {
 
     return 0;
 }
-
-
-
-
-
-
