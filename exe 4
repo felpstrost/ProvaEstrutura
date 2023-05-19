@@ -1,0 +1,50 @@
+//Tendo como base uma matriz quadrada de inteiros, faça um método recursivo que exiba uma determinada linha da matriz. Por exemplo, metodo4(matriz, TAML, TAMC, linha).
+#include <stdlib.h>
+#include <stdio.h>
+
+#define MAX 100
+
+void linha(int mat[][MAX], int TAMC, int lin) {
+	int i;
+    if (lin < 0 || lin >= TAMC) {
+        printf("Linha fora dos limites da matriz.\n");
+        return;
+    }
+	
+    for (i = 0; i < TAMC; i++) {
+        printf("%d ", mat[lin][i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int TAML, TAMC, lin;
+	int i, j;
+    printf("Digite o numero de linhas da matriz: ");
+    scanf("%d", &TAML);
+    printf("Digite o numero de colunas da matriz: ");
+    scanf("%d", &TAMC);
+
+    int mat[TAML][MAX];
+
+    printf("Digite os elementos da matriz:\n");
+    for (i = 0; i < TAML; i++) {
+        for (j = 0; j < TAMC; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &mat[i][j]);
+        }
+    }
+
+    printf("Digite o numero da linha que deseja exibir: ");
+    scanf("%d", &lin);
+
+    linha(mat, TAMC, lin);
+
+    return 0;
+}
+
+
+
+
+
+
