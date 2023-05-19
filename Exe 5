@@ -1,0 +1,37 @@
+//Tendo como base um vetor de inteiros, faça um método recursivo que retorne a quantidade de números presentes na faixa. Por exemplo, metodo5(vetor, TAM, ini, fim).
+#include <stdlib.h>
+#include <stdio.h>
+
+int faixa(int vet[], int tam, int ini, int fim) {
+    if (tam == 0) {
+        return 0;
+    }
+    
+    int cont = (vet[0] >= ini && vet[0] <= fim) ? 1 : 0;
+    
+    return cont + faixa(vet + 1, tam - 1, ini, fim);
+}
+
+int main() {
+	int i;
+    int tam;
+    printf("Digite o tamanho do vetor: ");
+    scanf("%d", &tam);
+    
+    int vet[tam];
+    printf("Digite os elementos do vetor:\n");
+    for (i= 0; i < tam; i++) {
+        scanf("%d", &vet[i]);
+    }
+    
+    int ini, fim;
+    printf("Digite o limite inferior: ");
+    scanf("%d", &ini);
+    printf("Digite o limite superior: ");
+    scanf("%d", &fim);
+    
+    int quant = faixa(vet, tam, ini, fim);
+    printf("Quantidade de números na faixa: %d\n", quant);
+    
+    return 0;
+}
