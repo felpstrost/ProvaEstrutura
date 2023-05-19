@@ -1,0 +1,52 @@
+//Tendo como base um vetor de inteiros de tamanho 5, faça um método recursivo que substitua um valor por outro. Por exemplo, metodo3(vetor, TAM, valorOriginal, valorDestino)
+#include <stdio.h>
+#include <stdlib.h>
+
+void sub(int vet[], int tam, int valor, int valdes) {
+    if (tam == 0) {
+        return;
+    }
+
+    if (vet[tam - 1] == valor) {
+        vet[tam - 1] = valdes;
+    }
+
+    sub(vet, tam - 1, valor, valdes);
+}
+
+int main() {
+	int i;
+    int vet[5];
+    int TAM = 5;
+    int valor, valdes;
+
+    printf("Digite os elementos do vetor:\n");
+    for (i = 0; i < TAM; i++) {
+        scanf("%d", &vet[i]);
+    }
+
+    printf("Digite o valor original: ");
+    scanf("%d", &valor);
+
+    printf("Digite o valor de destino: ");
+    scanf("%d", &valdes);
+
+    printf("Vetor original: ");
+    for (i = 0; i < TAM; i++) {
+        printf("%d ", vet[i]);
+    }
+    printf("\n");
+
+    sub(vet, TAM, valor, valdes);
+
+    printf("Vetor modificado: ");
+    for (i = 0; i < TAM; i++) {
+        printf("%d ", vet[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
+
